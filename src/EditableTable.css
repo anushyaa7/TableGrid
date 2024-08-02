@@ -8,11 +8,17 @@
 .custom-table th,
 .custom-table td {
   text-align: center;
-  padding: 4px 8px;
+  padding: 8px 5px;
   font-size: 0.85em;
   line-height: 1.2;
 }
 
+.custom-table-head th {
+  font-weight: bold; 
+  font-size: 0.8em; 
+  color: #64748B; 
+  text-transform: uppercase;
+}
 
 .custom-table td {
   background-color: #fff;
@@ -25,6 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 80px;
 }
 
 .circleIcon {
@@ -35,22 +42,24 @@
 
 .deleteIcon {
   position: absolute;
-  width: 12px; /* Adjust size as needed */
-  height: 12px; /* Adjust size as needed */
+  width: 12px; 
+  height: 12px;
 }
 
-/* Styles for the dropdown Select component */
 .custom-select {
-  width: 120px; /* Adjust width as needed */
-  height: 30px; /* Adjust height as needed */
+  width: 120px; 
+  height: 30px; 
   font-size: 0.85em; 
-  border-radius: 4px; 
+  border-radius: 2px; 
+  
 }
 
 .custom-textfield .MuiInputBase-input {
   height: 100%; 
   font-size: 0.85em; 
   padding: 7px; 
+  border: 1px solid #ebecef;
+  border-radius: 5px;
 }
 
 .pagination {
@@ -58,4 +67,23 @@
   justify-content: center;
   margin-top: 20px;
   margin-left: 938px;
+}
+
+.custom-checkbox-icon {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #64748B;
+  border-radius: 20%;
+  background-color: #fff;
+}
+
+.custom-checkbox-checked-icon {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20%;
+  background-color: #1976d2;
+}
+.question-text {
+  color: #226DB4; /* Blue color */
 }

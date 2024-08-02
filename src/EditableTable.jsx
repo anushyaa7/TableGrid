@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import {
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Checkbox,
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   Select, MenuItem, TextField, Paper,
   Pagination,
-  Stack
+  Stack,
+  styled
 } from '@mui/material';
 import Sort from './assets/Sort.png';
 import Circle from './assets/Circle.png';
 import Delete from './assets/Delete.png';
 import './EditableTable.css';
+import { Checkbox as MuiCheckbox } from '@mui/material';
+
 
 
 
@@ -24,14 +27,39 @@ const EditableTable = () => {
     createData('Question 4', '', '', '', '', '', ''),
     createData('Question 5', '', '', '', '', '', ''),
     createData('Question 6', '', '', '', '', '', ''),
+    createData('Question 7', '', '', '', '', '', ''),
+    createData('Question 8', '', '', '', '', '', ''),
+    createData('Question 9', '', '', '', '', '', ''),
+    createData('Question 10', '', '', '', '', '', ''),
   ];
 
+
+  const Checkbox = () => {
+    return (
+      <MuiCheckbox
+        icon={<span className="custom-checkbox-icon" />}
+        checkedIcon={<span className="custom-checkbox-checked-icon" />}
+      />
+    );
+  };
+
+  const CustomSelect = styled(Select)({
+    '&.MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'c4c6cb', 
+      },
+      '& .MuiSelect-select': {
+        color: '#c4c6cb', 
+      },
+      borderRadius: '7px', 
+    },
+  });
 
   return (
     <>
     <TableContainer component={Paper}>
     <Table className="custom-table">
-      <TableHead>
+      <TableHead className="custom-table-head">
         <TableRow>
           <TableCell align="right">Question <img src={Sort} alt="Sort" className="sortIcon" /></TableCell>
           <TableCell align="left">Answer Type <img src={Sort} alt="Sort" className="sortIcon" /></TableCell>
@@ -46,57 +74,57 @@ const EditableTable = () => {
         {rows.map((row, index) => (
           <TableRow key={index}>
             <TableCell>
-              <Checkbox />
-              {row.question}
+              <Checkbox className="custom-checkbox" />
+              <span className="question-text">{row.question}</span>
             </TableCell>
             <TableCell className="table-cell-fixed">
-              <Select value={row.answerType} displayEmpty className="custom-select">
+              <CustomSelect value={row.answerType} displayEmpty className="custom-select">
                 <MenuItem value="" disabled className="placeholder">
                  Select
                 </MenuItem>
                 <MenuItem value="Type 1">Type 1</MenuItem>
                 <MenuItem value="Type 2">Type 2</MenuItem>
-              </Select>
+              </CustomSelect>
             </TableCell>
             <TableCell>
-              <Select value={row.mandatory} displayEmpty className="custom-select">
+              <CustomSelect value={row.mandatory} displayEmpty className="custom-select">
                 <MenuItem value="" disabled className="placeholder">
                   Select
                 </MenuItem>
                 <MenuItem value="Yes">Yes</MenuItem>
                 <MenuItem value="No">No</MenuItem>
-              </Select>
+              </CustomSelect>
             </TableCell>
             <TableCell>
               <TextField value={row.answerRemarks} placeholder="Placeholder" className="custom-textfield" />
             </TableCell>
             <TableCell>
-              <Select value={row.severity} displayEmpty className="custom-select">
+              <CustomSelect value={row.severity} displayEmpty className="custom-select">
                 <MenuItem value="" disabled className="placeholder">
                   Select
                 </MenuItem>
                 <MenuItem value="High">High</MenuItem>
                 <MenuItem value="Medium">Medium</MenuItem>
                 <MenuItem value="Low">Low</MenuItem>
-              </Select>
+              </CustomSelect>
             </TableCell>
             <TableCell>
-              <Select value={row.category} displayEmpty className="custom-select">
+              <CustomSelect value={row.category} displayEmpty className="custom-select">
                 <MenuItem value="" disabled className="placeholder">
                   Select
                 </MenuItem>
                 <MenuItem value="Category 1">Category 1</MenuItem>
                 <MenuItem value="Category 2">Category 2</MenuItem>
-              </Select>
+              </CustomSelect>
             </TableCell>
             <TableCell>
-              <Select value={row.section} displayEmpty className="custom-select">
+              <CustomSelect value={row.section} displayEmpty className="custom-select">
                 <MenuItem value="" disabled className="placeholder">
                   Select
                 </MenuItem>
                 <MenuItem value="Section 1">Section 1</MenuItem>
                 <MenuItem value="Section 2">Section 2</MenuItem>
-              </Select>
+              </CustomSelect>
             </TableCell>
             <TableCell>
               <div className="circleContainer">
