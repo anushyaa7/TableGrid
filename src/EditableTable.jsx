@@ -11,7 +11,7 @@ import Circle from './assets/Circle.png';
 import Delete from './assets/Delete.png';
 import './EditableTable.css';
 import { Checkbox as MuiCheckbox } from '@mui/material';
-
+import { ExpandMore } from '@mui/icons-material';
 
 
 
@@ -49,10 +49,15 @@ const EditableTable = () => {
         borderColor: 'c4c6cb', 
       },
       '& .MuiSelect-select': {
-        color: '#c4c6cb', 
+        color: '#c4c6cb',
+        fontSize: '0.9rem', 
       },
-      borderRadius: '7px', 
+      borderRadius: '7px'
     },
+    '& .MuiSelect-icon': {
+    fontSize: '1.1rem',
+    color: '#64748B',
+  },
   });
 
   return (
@@ -78,7 +83,7 @@ const EditableTable = () => {
               <span className="question-text">{row.question}</span>
             </TableCell>
             <TableCell className="table-cell-fixed">
-              <CustomSelect value={row.answerType} displayEmpty className="custom-select">
+              <CustomSelect value={row.answerType} displayEmpty className="custom-select" IconComponent={ExpandMore}>
                 <MenuItem value="" disabled className="placeholder">
                  Select
                 </MenuItem>
@@ -87,8 +92,8 @@ const EditableTable = () => {
               </CustomSelect>
             </TableCell>
             <TableCell>
-              <CustomSelect value={row.mandatory} displayEmpty className="custom-select">
-                <MenuItem value="" disabled className="placeholder">
+              <CustomSelect value={row.mandatory} displayEmpty className="custom-select" IconComponent={ExpandMore}>
+                <MenuItem value="" disabled className="placeholder" >
                   Select
                 </MenuItem>
                 <MenuItem value="Yes">Yes</MenuItem>
@@ -99,7 +104,7 @@ const EditableTable = () => {
               <TextField value={row.answerRemarks} placeholder="Placeholder" className="custom-textfield" />
             </TableCell>
             <TableCell>
-              <CustomSelect value={row.severity} displayEmpty className="custom-select">
+              <CustomSelect value={row.severity} displayEmpty className="custom-select" IconComponent={ExpandMore}>
                 <MenuItem value="" disabled className="placeholder">
                   Select
                 </MenuItem>
@@ -109,7 +114,7 @@ const EditableTable = () => {
               </CustomSelect>
             </TableCell>
             <TableCell>
-              <CustomSelect value={row.category} displayEmpty className="custom-select">
+              <CustomSelect value={row.category} displayEmpty className="custom-select" IconComponent={ExpandMore}>
                 <MenuItem value="" disabled className="placeholder">
                   Select
                 </MenuItem>
@@ -118,7 +123,7 @@ const EditableTable = () => {
               </CustomSelect>
             </TableCell>
             <TableCell>
-              <CustomSelect value={row.section} displayEmpty className="custom-select">
+              <CustomSelect value={row.section} displayEmpty className="custom-select" IconComponent={ExpandMore}>
                 <MenuItem value="" disabled className="placeholder">
                   Select
                 </MenuItem>
