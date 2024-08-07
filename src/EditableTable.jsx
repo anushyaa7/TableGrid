@@ -11,7 +11,7 @@ import Circle from './assets/Circle.png';
 import Delete from './assets/Delete.png';
 import './EditableTable.css';
 import { Checkbox as MuiCheckbox } from '@mui/material';
-import { ExpandMore } from '@mui/icons-material';
+
 
 
 
@@ -52,12 +52,8 @@ const EditableTable = () => {
         color: '#c4c6cb',
         fontSize: '0.9rem', 
       },
-      borderRadius: '7px'
+      borderRadius: '7px', 
     },
-    '& .MuiSelect-icon': {
-    fontSize: '1.1rem',
-    color: '#64748B',
-  },
   });
 
   return (
@@ -92,8 +88,8 @@ const EditableTable = () => {
               </CustomSelect>
             </TableCell>
             <TableCell>
-              <CustomSelect value={row.mandatory} displayEmpty className="custom-select" IconComponent={ExpandMore}>
-                <MenuItem value="" disabled className="placeholder" >
+              <CustomSelect value={row.mandatory} displayEmpty className="custom-select">
+                <MenuItem value="" disabled className="placeholder">
                   Select
                 </MenuItem>
                 <MenuItem value="Yes">Yes</MenuItem>
